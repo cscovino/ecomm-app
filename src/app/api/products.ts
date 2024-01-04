@@ -7,3 +7,10 @@ export async function getProducts(): Promise<Product[]> {
   const data = await resp.json();
   return data;
 }
+
+export async function getProductById(id: string): Promise<Product> {
+  const productsEndpoint = `${API_URL}/products/${id}`;
+  const resp = await fetch(productsEndpoint, { cache: "no-cache" });
+  const data = await resp.json();
+  return data;
+}
