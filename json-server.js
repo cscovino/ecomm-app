@@ -15,7 +15,7 @@ module.exports = () => {
       name: faker.commerce.productName(),
       description: faker.commerce.productDescription(),
       price: faker.commerce.price(),
-      tax: faker.number.float({ min: 0, max: 15, precision: 1 }),
+      tax: faker.number.int({ min: 1, max: 15 }),
       quantity: faker.number.int({ min: 0, max: 50 }),
     });
   }

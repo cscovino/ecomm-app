@@ -14,3 +14,14 @@ export async function getProductById(id: string): Promise<Product> {
   const data = await resp.json();
   return data;
 }
+
+export async function putProduct(payload: Product): Promise<any> {
+  const productsEndpoint = `${API_URL}/products/${payload.id}`;
+  const resp = await fetch(productsEndpoint, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const data = await resp.json();
+  return data;
+}

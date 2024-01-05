@@ -1,4 +1,5 @@
 import { getProductById } from "@/app/api/products";
+import Link from "next/link";
 
 export default async function Product({
   params: { id },
@@ -8,8 +9,18 @@ export default async function Product({
   const product = await getProductById(id);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="w-full flex flex-col font-mono">
-        <div className="flex flex-col pt-5 w-fit">
+      <div className="w-3/5 flex flex-col font-mono">
+        <div className="self-end">
+          <Link href={`/products/${id}/edit`}>
+            <button
+              type="button"
+              className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent disabled:opacity-50 disabled:pointer-events-none text-blue-500 hover:bg-blue-800/30 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-gray-600"
+            >
+              Edit
+            </button>
+          </Link>
+        </div>
+        <div className="flex flex-col w-fit">
           <h1 className="py-2 text-3xl">{product.name}</h1>
           <div className="flex justify-between">
             <span className="inline-flex items-center h-fit self-start gap-x-0.5 py-0.5 px-2 rounded-md text-xs border border-gray-200 bg-white text-gray-800 shadow-sm">
