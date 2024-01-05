@@ -1,8 +1,9 @@
 import Table from "@/components/Table";
-import { getProducts } from "../api/products";
+import { getOrders } from "../api/orders";
+import { Order } from "@/types";
 
-export default async function Products() {
-  const products = await getProducts();
+export default async function Orders() {
+  const orders = await getOrders();
   return (
     <main className="flex flex-col">
       <div className="overflow-x-auto flex justify-center items-center">
@@ -40,17 +41,17 @@ export default async function Products() {
               </div>
             </div>
             <div className="overflow-hidden">
-              <Table
+              <Table<Omit<Order, "products">>
                 keyExtractor={({ id }) => id.toString()}
-                hrefExtractor={({ id }) => `/products/${id}`}
-                properties={["reference", "name", "price"]}
+                hrefExtractor={({ id }) => `/orders/${id}`}
+                properties={["orderId", "price", "totalPrice"]}
                 renderItem={(item, property) => {
-                  if ("price" === property) {
+                  if (["price", "totalPrice"].includes(property)) {
                     return `${item[property]} €`;
                   }
                   return item[property];
                 }}
-                data={products}
+                data={orders}
               />
             </div>
           </div>

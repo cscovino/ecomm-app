@@ -35,8 +35,13 @@ module.exports = () => {
     id: 1,
     orderId: nanoid(),
     products: [
-      { reference: data.products[0].reference, quantity: firstProductQuantity },
       {
+        id: 1,
+        reference: data.products[0].reference,
+        quantity: firstProductQuantity,
+      },
+      {
+        id: 2,
         reference: data.products[1].reference,
         quantity: secondProductQuantity,
       },
