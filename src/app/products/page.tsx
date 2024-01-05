@@ -1,14 +1,15 @@
 import Table from "@/components/Table";
 import { getProducts } from "../api/products";
+import Link from "next/link";
 
 export default async function Products() {
   const products = await getProducts();
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col p-24">
       <div className="overflow-x-auto flex justify-center items-center">
         <div className="p-1.5 w-4/5 inline-block align-middle">
           <div className="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
-            <div className="py-3 px-4">
+            <div className="py-3 px-4 flex justify-between">
               <div className="relative max-w-xs">
                 <label htmlFor="hs-table-search" className="sr-only">
                   Search
@@ -38,6 +39,14 @@ export default async function Products() {
                   </svg>
                 </div>
               </div>
+              <Link href={`/products/add`}>
+                <button
+                  type="button"
+                  className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent disabled:opacity-50 disabled:pointer-events-none text-blue-500 hover:bg-blue-800/30 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-gray-600"
+                >
+                  Add
+                </button>
+              </Link>
             </div>
             <div className="overflow-hidden">
               <Table

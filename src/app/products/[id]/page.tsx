@@ -10,7 +10,15 @@ export default async function Product({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-3/5 flex flex-col font-mono">
-        <div className="self-end">
+        <div className="self-end flex gap-4">
+          <Link href={`/products`}>
+            <button
+              type="button"
+              className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-200 disabled:opacity-50 disabled:pointer-events-none hover:bg-gray-700 focus:outline-none"
+            >
+              Back
+            </button>
+          </Link>
           <Link href={`/products/${id}/edit`}>
             <button
               type="button"
@@ -22,7 +30,7 @@ export default async function Product({
         </div>
         <div className="flex flex-col w-fit">
           <h1 className="py-2 text-3xl">{product.name}</h1>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-2">
             <span className="inline-flex items-center h-fit self-start gap-x-0.5 py-0.5 px-2 rounded-md text-xs border border-gray-200 bg-white text-gray-800 shadow-sm">
               Ref: {product.reference}
             </span>
