@@ -1,15 +1,17 @@
 import Table from "@/components/Table";
-import { getOrders } from "../api/orders";
 import { Order } from "@/types";
+
+import { getOrders } from "../api/orders";
 
 export default async function Orders() {
   const orders = await getOrders();
   return (
-    <main className="flex flex-col">
-      <div className="overflow-x-auto flex justify-center items-center">
+    <main className="flex flex-col p-24">
+      <div className="overflow-x-auto flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold pb-6">Orders</h1>
         <div className="p-1.5 w-4/5 inline-block align-middle">
-          <div className="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
-            <div className="py-3 px-4">
+          <div className="border rounded-lg divide-y border-gray-700 divide-gray-700">
+            <div className="py-3 px-4 flex justify-between">
               <div className="relative max-w-xs">
                 <label htmlFor="hs-table-search" className="sr-only">
                   Search

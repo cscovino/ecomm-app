@@ -1,5 +1,6 @@
-import { getProductById } from "@/app/api/products";
 import Link from "next/link";
+
+import { getProductById } from "@/app/api/products";
 
 export default async function Product({
   params: { id },

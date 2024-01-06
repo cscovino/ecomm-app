@@ -1,6 +1,7 @@
-import { Product } from "@/types";
 import Link from "next/link";
 import { FormEvent } from "react";
+
+import { Product } from "@/types";
 
 interface ProductFormProps {
   product: Product;

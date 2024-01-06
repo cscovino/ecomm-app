@@ -1,14 +1,17 @@
-import Table from "@/components/Table";
-import { getProducts } from "../api/products";
 import Link from "next/link";
+
+import Table from "@/components/Table";
+
+import { getProducts } from "../api/products";
 
 export default async function Products() {
   const products = await getProducts();
   return (
     <main className="flex flex-col p-24">
-      <div className="overflow-x-auto flex justify-center items-center">
+      <div className="overflow-x-auto flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold pb-6">Products</h1>
         <div className="p-1.5 w-4/5 inline-block align-middle">
-          <div className="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+          <div className="border rounded-lg divide-y border-gray-700 divide-gray-700">
             <div className="py-3 px-4 flex justify-between">
               <div className="relative max-w-xs">
                 <label htmlFor="hs-table-search" className="sr-only">

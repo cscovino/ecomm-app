@@ -1,9 +1,9 @@
-const { faker } = require("@faker-js/faker");
+const { fakerES } = require("@faker-js/faker");
 const { customAlphabet } = require("nanoid");
 const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const nanoid = customAlphabet(alphabet, 8);
 
-faker.seed(123);
+fakerES.seed(123);
 
 module.exports = () => {
   const data = { products: [], orders: [] };
@@ -12,11 +12,11 @@ module.exports = () => {
     data.products.push({
       id: i,
       reference: nanoid(),
-      name: faker.commerce.productName(),
-      description: faker.commerce.productDescription(),
-      price: faker.commerce.price(),
-      tax: faker.number.int({ min: 1, max: 15 }),
-      quantity: faker.number.int({ min: 0, max: 50 }),
+      name: fakerES.commerce.productName(),
+      description: fakerES.commerce.productDescription(),
+      price: fakerES.commerce.price(),
+      tax: fakerES.number.int({ min: 1, max: 15 }),
+      quantity: fakerES.number.int({ min: 0, max: 50 }),
     });
   }
   const firstProductQuantity = 2;

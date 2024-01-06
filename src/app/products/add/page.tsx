@@ -1,8 +1,10 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+
 import { postProduct } from "@/app/api/products";
 import ProductForm from "@/components/ProductForm";
 import { Product } from "@/types";
-import { useRouter } from "next/navigation";
 
 const productTemplate: Product = {
   id: 0,
