@@ -17,6 +17,7 @@
       "tax": "Tax",
       "quantity": "Quantity",
       "ref": "Ref",
+      "delete": "Delete",
       "qty": "Qty"
     },
     "placeholders": {

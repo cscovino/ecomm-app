@@ -1,6 +1,6 @@
 import { getProductById } from "@/app/api/products";
 
-import FormClient from "./formClient";
+import FormClient from "./FormClient";
 
 export default async function EditProduct({
   params: { id },

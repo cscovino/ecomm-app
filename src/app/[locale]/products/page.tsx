@@ -3,6 +3,9 @@ import { getTranslations } from "next-intl/server";
 import Table from "@/components/Table";
 import { Link } from "@/navigation";
 import { getProducts } from "@/app/api/products";
+import { Product } from "@/types";
+
+import DeleteButton from "./DeleteButton";
 
 export default async function Products() {
   const products = await getProducts();
@@ -57,10 +60,18 @@ export default async function Products() {
                 namespace="Products.properties"
                 keyExtractor={({ id }) => id.toString()}
                 hrefExtractor={({ id }) => `/products/${id}`}
-                properties={["reference", "name", "price"]}
+                properties={[
+                  "reference",
+                  "name",
+                  "price",
+                  "delete" as keyof Product,
+                ]}
                 renderItem={(item, property) => {
                   if ("price" === property) {
                     return `${item[property]} €`;
+                  }
+                  if (("delete" as keyof Product) === property) {
+                    return <DeleteButton id={item.id} />;
                   }
                   return item[property];
                 }}

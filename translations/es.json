@@ -17,6 +17,7 @@
       "tax": "Impuesto",
       "quantity": "Cantidad",
       "ref": "Ref",
+      "delete": "Eliminar",
       "qty": "Cant"
     },
     "placeholders": {
@@ -39,8 +40,7 @@
       "qty": "Cant"
     },
     "placeholders": {
-      "search": "Buscar pedido...",
-      "description": "Descripción del producto..."
+      "search": "Buscar pedido..."
     }
   },
   "Buttons": {

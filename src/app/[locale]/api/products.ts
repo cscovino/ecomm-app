@@ -36,3 +36,13 @@ export async function postProduct(payload: Product): Promise<Product> {
   const data = await resp.json();
   return data;
 }
+
+export async function deleteProduct(id: number): Promise<Product> {
+  const productsEndpoint = `${API_URL}/products/${id}`;
+  const resp = await fetch(productsEndpoint, {
+    method: "DELETE",
+    cache: "no-cache",
+  });
+  const data = await resp.json();
+  return data;
+}
