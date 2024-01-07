@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 
 import PrelineScript from "@/components/PrelineScript";
 import SideBar from "@/components/SideBar";
+import { Link } from "@/navigation";
 
 import "./globals.css";
 
@@ -16,11 +21,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  locale,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const t = useTranslations("Nav");
+  const messages = useMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={inter.className}>
         <SideBar
           links={[
@@ -46,7 +55,7 @@ export default function RootLayout({
                 <path d="M2 7h20" />
                 <path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7" />
               </svg>
-              Orders
+              {t("orders")}
             </Link>,
             <Link
               className="flex items-center gap-x-3.5 py-2 px-2.5 text-md text-slate-400 rounded-lg hover:bg-gray-500 group-hover:text-slate-800 bg-gray-900"
@@ -69,11 +78,13 @@ export default function RootLayout({
                 <path d="m3.3 7 8.7 5 8.7-5" />
                 <path d="M12 22V12" />
               </svg>
-              Products
+              {t("products")}
             </Link>,
           ]}
         />
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
       <PrelineScript />
     </html>

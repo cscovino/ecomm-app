@@ -11,7 +11,7 @@ export interface Product {
 export interface Order {
   id: number;
   orderId: string;
-  products: Array<Pick<Product, "reference" | "quantity">>;
+  products: Array<Product & { orderQuantity: number }>;
   price: number;
   totalPrice: number;
 }

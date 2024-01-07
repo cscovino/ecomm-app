@@ -1,17 +1,16 @@
-import Link from "next/link";
 import { FormEvent } from "react";
+import { useTranslations } from "next-intl";
 
 import { Product } from "@/types";
+import { Link } from "@/navigation";
 
 interface ProductFormProps {
   product: Product;
   onEdit: (product: Product) => void;
 }
 
-export default async function ProductForm({
-  product,
-  onEdit,
-}: ProductFormProps) {
+export default function ProductForm({ product, onEdit }: ProductFormProps) {
+  const t = useTranslations();
   const onSubmit = (evt: FormEvent) => {
     evt.preventDefault();
     const formData = new FormData(
@@ -39,13 +38,13 @@ export default async function ProductForm({
             htmlFor="input-name"
             className="block text-sm font-medium mb-2 text-white"
           >
-            Name
+            {t("Products.properties.name")}
           </label>
           <input
             name="name"
             id="input-name"
             className="py-3 px-4 block w-full rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none bg-slate-900 border-gray-700 text-gray-400"
-            placeholder="Awesome Product"
+            placeholder={t("Products.placeholders.name")}
             defaultValue={product.name}
           />
         </div>
@@ -54,7 +53,7 @@ export default async function ProductForm({
             htmlFor="input-reference"
             className="block text-sm font-medium mb-2 text-white"
           >
-            Reference
+            {t("Products.properties.reference")}
           </label>
           <input
             name="reference"
@@ -70,14 +69,14 @@ export default async function ProductForm({
           htmlFor="textarea-description"
           className="block text-sm font-medium mb-2 text-white"
         >
-          Description
+          {t("Products.properties.description")}
         </label>
         <textarea
           name="description"
           id="textarea-description"
           className="py-3 px-4 block w-full rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none bg-slate-900 border-gray-700 text-gray-400"
           rows={3}
-          placeholder="Product description..."
+          placeholder={t("Products.placeholders.description")}
           defaultValue={product.description}
         ></textarea>
       </div>
@@ -87,7 +86,7 @@ export default async function ProductForm({
             htmlFor="input-price"
             className="block text-sm font-medium mb-2 text-white"
           >
-            Price
+            {t("Products.properties.price")}
           </label>
           <div className="relative">
             <input
@@ -112,7 +111,7 @@ export default async function ProductForm({
             htmlFor="input-tax"
             className="block text-sm font-medium mb-2 text-white"
           >
-            Tax (%)
+            {t("Products.properties.tax")} %
           </label>
           <div
             className="py-2 px-3 inline-block border rounded-lg bg-slate-900 border-slate-900"
@@ -176,7 +175,7 @@ export default async function ProductForm({
             htmlFor="input-quantity"
             className="block text-sm font-medium mb-2 text-white"
           >
-            Quantity
+            {t("Products.properties.quantity")}
           </label>
           <div
             className="py-2 px-3 inline-block border rounded-lg bg-slate-900 border-slate-900"
@@ -241,14 +240,14 @@ export default async function ProductForm({
           type="submit"
           className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-teal-500 disabled:opacity-50 disabled:pointer-events-none hover:bg-teal-800/30 hover:text-teal-400 focus:outline-none"
         >
-          Save
+          {t("Buttons.save")}
         </button>
-        <Link href={`/products/${product.id}`}>
+        <Link href={product.id > 0 ? `/products/${product.id}` : "/products"}>
           <button
             type="button"
             className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-200 disabled:opacity-50 disabled:pointer-events-none hover:bg-gray-700 focus:outline-none"
           >
-            Cancel
+            {t("Buttons.cancel")}
           </button>
         </Link>
       </div>

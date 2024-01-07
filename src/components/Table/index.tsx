@@ -1,7 +1,10 @@
-import Link from "next/link";
 import { ReactNode } from "react";
 
+import { Link } from "@/navigation";
+import { getTranslations } from "next-intl/server";
+
 export interface TableProps<T> {
+  namespace: string;
   keyExtractor: (item: T) => string;
   hrefExtractor: (item: T) => string;
   renderItem: (item: T, property: keyof T) => string | number | ReactNode;
@@ -9,13 +12,15 @@ export interface TableProps<T> {
   data: T[];
 }
 
-export default function Table<T>({
+export default async function Table<T>({
+  namespace,
   keyExtractor,
   hrefExtractor,
   renderItem,
   properties,
   data,
 }: TableProps<T>) {
+  const t = await getTranslations(namespace);
   return (
     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
       <thead className="bg-gray-50 dark:bg-gray-700">
@@ -26,7 +31,7 @@ export default function Table<T>({
               className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"
               key={property.toString()}
             >
-              {property.toString()}
+              {t(property as string)}
             </th>
           ))}
         </tr>

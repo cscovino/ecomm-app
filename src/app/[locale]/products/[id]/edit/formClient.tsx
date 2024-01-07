@@ -14,8 +14,8 @@ export default async function FormClient({ product }: FormClientProps) {
   const router = useRouter();
   const onEdit = async (payload: Product) => {
     await putProduct(payload);
-    router.prefetch(`/products/${product.id}`);
     router.push(`/products/${product.id}`);
+    router.refresh();
   };
   return <ProductForm product={product} onEdit={onEdit} />;
 }

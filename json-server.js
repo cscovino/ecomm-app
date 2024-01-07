@@ -31,23 +31,55 @@ module.exports = () => {
     parseInt(data.products[1].price) *
     (1 + data.products[1].tax / 100) *
     secondProductQuantity;
-  data.orders.push({
-    id: 1,
-    orderId: nanoid(),
-    products: [
-      {
-        id: 1,
-        reference: data.products[0].reference,
-        quantity: firstProductQuantity,
-      },
-      {
-        id: 2,
-        reference: data.products[1].reference,
-        quantity: secondProductQuantity,
-      },
-    ],
-    price: orderPrice,
-    totalPrice: totalOrderPrice,
-  });
+  data.orders.push(
+    {
+      id: 1,
+      orderId: nanoid(),
+      products: [
+        {
+          ...data.products[0],
+          orderQuantity: firstProductQuantity,
+        },
+        {
+          ...data.products[1],
+          orderQuantity: secondProductQuantity,
+        },
+      ],
+      price: orderPrice,
+      totalPrice: totalOrderPrice,
+    },
+    {
+      id: 2,
+      orderId: nanoid(),
+      products: [
+        {
+          ...data.products[0],
+          orderQuantity: firstProductQuantity,
+        },
+        {
+          ...data.products[1],
+          orderQuantity: secondProductQuantity,
+        },
+      ],
+      price: orderPrice,
+      totalPrice: totalOrderPrice,
+    },
+    {
+      id: 3,
+      orderId: nanoid(),
+      products: [
+        {
+          ...data.products[0],
+          orderQuantity: firstProductQuantity,
+        },
+        {
+          ...data.products[1],
+          orderQuantity: secondProductQuantity,
+        },
+      ],
+      price: orderPrice,
+      totalPrice: totalOrderPrice,
+    }
+  );
   return data;
 };

@@ -1,0 +1,51 @@
+{
+  "Nav": {
+    "products": "Products",
+    "orders": "Orders"
+  },
+  "Products": {
+    "products": "Products",
+    "product": "Product",
+    "add": "Add product",
+    "new": "New product",
+    "search": "Search",
+    "properties": {
+      "name": "Name",
+      "reference": "Reference",
+      "description": "Description",
+      "price": "Price",
+      "tax": "Tax",
+      "quantity": "Quantity",
+      "ref": "Ref",
+      "qty": "Qty"
+    },
+    "placeholders": {
+      "search": "Search product...",
+      "name": "Awesome product",
+      "description": "Product description..."
+    }
+  },
+  "Orders": {
+    "orders": "Orders",
+    "order": "Order",
+    "add": "Add order",
+    "new": "New order",
+    "search": "Search",
+    "properties": {
+      "orderId": "ID",
+      "price": "Price",
+      "totalPrice": "Total price",
+      "products": "Products",
+      "qty": "Qty"
+    },
+    "placeholders": {
+      "search": "Search order..."
+    }
+  },
+  "Buttons": {
+    "save": "Save",
+    "edit": "Edit",
+    "back": "Back",
+    "cancel": "Cancel"
+  }
+}
