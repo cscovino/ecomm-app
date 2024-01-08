@@ -10,7 +10,7 @@ export interface Product {
 
 export interface Order {
   id: number;
-  orderId: string;
+  orderNumber: string;
   products: Array<Product & { orderQuantity: number }>;
   price: number;
   totalPrice: number;

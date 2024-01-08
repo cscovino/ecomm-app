@@ -33,10 +33,11 @@
     "new": "Pedido nuevo",
     "search": "Buscar",
     "properties": {
-      "orderId": "ID",
+      "orderNumber": "ID",
       "price": "Precio",
       "totalPrice": "Precio total",
       "products": "Productos",
+      "delete": "Eliminar",
       "qty": "Cant"
     },
     "placeholders": {

@@ -33,10 +33,11 @@
     "new": "New order",
     "search": "Search",
     "properties": {
-      "orderId": "ID",
+      "orderNumber": "ID",
       "price": "Price",
       "totalPrice": "Total price",
       "products": "Products",
+      "delete": "Delete",
       "qty": "Qty"
     },
     "placeholders": {

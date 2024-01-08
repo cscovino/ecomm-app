@@ -34,7 +34,7 @@ module.exports = () => {
   data.orders.push(
     {
       id: 1,
-      orderId: nanoid(),
+      orderNumber: nanoid(),
       products: [
         {
           ...data.products[0],
@@ -50,7 +50,7 @@ module.exports = () => {
     },
     {
       id: 2,
-      orderId: nanoid(),
+      orderNumber: nanoid(),
       products: [
         {
           ...data.products[0],
@@ -66,7 +66,7 @@ module.exports = () => {
     },
     {
       id: 3,
-      orderId: nanoid(),
+      orderNumber: nanoid(),
       products: [
         {
           ...data.products[0],

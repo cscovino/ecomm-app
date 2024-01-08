@@ -10,7 +10,7 @@ interface FormClientProps {
   product: Product;
 }
 
-export default async function FormClient({ product }: FormClientProps) {
+export default function FormClient({ product }: FormClientProps) {
   const router = useRouter();
   const onEdit = async (payload: Product) => {
     await putProduct(payload);

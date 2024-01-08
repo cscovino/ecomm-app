@@ -34,6 +34,7 @@ export default function RootLayout({
         <SideBar
           links={[
             <Link
+              key="orders"
               className="flex items-center gap-x-3.5 py-2 px-2.5 text-md text-slate-400 rounded-lg hover:bg-gray-500 group-hover:text-slate-800 bg-gray-900"
               href="/orders"
             >
@@ -58,6 +59,7 @@ export default function RootLayout({
               {t("orders")}
             </Link>,
             <Link
+              key="products"
               className="flex items-center gap-x-3.5 py-2 px-2.5 text-md text-slate-400 rounded-lg hover:bg-gray-500 group-hover:text-slate-800 bg-gray-900"
               href="/products"
             >

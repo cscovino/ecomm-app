@@ -25,3 +25,13 @@ export async function putOrder(payload: Order): Promise<any> {
   const data = await resp.json();
   return data;
 }
+
+export async function deleteOrder(id: number): Promise<Order> {
+  const ordersEndpoint = `${API_URL}/orders/${id}`;
+  const resp = await fetch(ordersEndpoint, {
+    method: "DELETE",
+    cache: "no-cache",
+  });
+  const data = await resp.json();
+  return data;
+}

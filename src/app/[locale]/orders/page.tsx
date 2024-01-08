@@ -1,8 +1,11 @@
+import { getTranslations } from "next-intl/server";
+
 import Table from "@/components/Table";
 import { Order } from "@/types";
 import { getOrders } from "@/app/api/orders";
 import { Link } from "@/navigation";
-import { getTranslations } from "next-intl/server";
+
+import DeleteButton from "./DeleteButton";
 
 export default async function Orders() {
   const t = await getTranslations("Orders");
@@ -53,14 +56,17 @@ export default async function Orders() {
               </Link>
             </div>
             <div className="overflow-hidden">
-              <Table<Omit<Order, "products">>
+              <Table<Omit<Order, "products"> & { delete?: string }>
                 namespace="Orders.properties"
                 keyExtractor={({ id }) => id.toString()}
                 hrefExtractor={({ id }) => `/orders/${id}`}
-                properties={["orderId", "price", "totalPrice"]}
+                properties={["orderNumber", "price", "totalPrice", "delete"]}
                 renderItem={(item, property) => {
                   if (["price", "totalPrice"].includes(property)) {
                     return `${item[property]} €`;
+                  }
+                  if (("delete" as keyof Order) === property) {
+                    return <DeleteButton id={item.id} />;
                   }
                   return item[property];
                 }}

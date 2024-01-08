@@ -31,7 +31,7 @@ export default async function Product({
           </Link>
         </div>
         <h1 className="py-2 text-3xl">
-          {t("Orders.order")} #{order.orderId}
+          {t("Orders.order")} #{order.orderNumber}
         </h1>
         <div className="pb-2">
           <h4 className="text-lg">{t("Orders.properties.products")}</h4>
