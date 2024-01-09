@@ -18,6 +18,7 @@
       "quantity": "Cantidad",
       "ref": "Ref",
       "delete": "Eliminar",
+      "orderQuantity": "Cantidad",
       "qty": "Cant"
     },
     "placeholders": {
@@ -30,6 +31,7 @@
     "orders": "Pedidos",
     "order": "Pedido",
     "add": "Añadir pedido",
+    "addProduct": "Añadir Producto",
     "new": "Pedido nuevo",
     "search": "Buscar",
     "properties": {

@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
+import { useRouter } from "@/navigation";
 import ProductForm from "@/components/ProductForm";
 import { Product } from "@/types";
 import { postProduct } from "@/app/api/products";

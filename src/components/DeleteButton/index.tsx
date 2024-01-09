@@ -1,15 +1,13 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
-import { deleteProduct } from "@/app/api/products";
 import { MouseEventHandler } from "react";
 
-export default function DeleteButton({ id }: { id: number }) {
-  const router = useRouter();
+export default function DeleteButton({
+  deleteItem,
+}: {
+  deleteItem: () => void;
+}) {
   const onDelete: MouseEventHandler<HTMLButtonElement> = (evt) => {
     evt.stopPropagation();
-    deleteProduct(id).then(() => router.refresh());
+    deleteItem();
   };
   return (
     <button type="button" onClick={onDelete}>

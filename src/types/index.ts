@@ -8,10 +8,14 @@ export interface Product {
   quantity: number;
 }
 
+export interface OrderProduct extends Product {
+  orderQuantity: number;
+}
+
 export interface Order {
   id: number;
   orderNumber: string;
-  products: Array<Product & { orderQuantity: number }>;
+  products: Array<OrderProduct>;
   price: number;
   totalPrice: number;
 }

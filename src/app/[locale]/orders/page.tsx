@@ -5,7 +5,7 @@ import { Order } from "@/types";
 import { getOrders } from "@/app/api/orders";
 import { Link } from "@/navigation";
 
-import DeleteButton from "./DeleteButton";
+import DeleteOrder from "./DeleteOrder";
 
 export default async function Orders() {
   const t = await getTranslations("Orders");
@@ -66,7 +66,7 @@ export default async function Orders() {
                     return `${item[property]} €`;
                   }
                   if (("delete" as keyof Order) === property) {
-                    return <DeleteButton id={item.id} />;
+                    return <DeleteOrder id={item.id} />;
                   }
                   return item[property];
                 }}

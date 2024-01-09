@@ -28,7 +28,7 @@ export default async function Table<T>({
           {properties.map((property) => (
             <th
               scope="col"
-              className={`px-6 py-3 text-${property === "delete" ? "center" : "start"
+              className={`px-6 py-3 ${property === "delete" ? "text-center" : "text-start"
                 } text-xs font-medium text-gray-500 uppercase`}
               key={property.toString()}
             >
@@ -45,7 +45,7 @@ export default async function Table<T>({
                 key={`${keyExtractor(item)}-${property.toString()}`}
                 className="text-gray-200"
               >
-                {property === "delete" ? (
+                {["delete", "orderQuantity"].includes(property as string) ? (
                   <div className="text-center">
                     {renderItem(item, property as keyof T)}
                   </div>

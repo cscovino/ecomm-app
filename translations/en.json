@@ -18,6 +18,7 @@
       "quantity": "Quantity",
       "ref": "Ref",
       "delete": "Delete",
+      "orderQuantity": "Quantity",
       "qty": "Qty"
     },
     "placeholders": {
@@ -30,6 +31,7 @@
     "orders": "Orders",
     "order": "Order",
     "add": "Add order",
+    "addProduct": "Add Product",
     "new": "New order",
     "search": "Search",
     "properties": {

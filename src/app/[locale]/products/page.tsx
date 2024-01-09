@@ -5,7 +5,7 @@ import { Link } from "@/navigation";
 import { getProducts } from "@/app/api/products";
 import { Product } from "@/types";
 
-import DeleteButton from "./DeleteButton";
+import DeleteProduct from "./DeleteProduct";
 
 export default async function Products() {
   const products = await getProducts();
@@ -71,7 +71,7 @@ export default async function Products() {
                     return `${item[property]} €`;
                   }
                   if (("delete" as keyof Product) === property) {
-                    return <DeleteButton id={item.id} />;
+                    return <DeleteProduct id={item.id} />;
                   }
                   return item[property];
                 }}

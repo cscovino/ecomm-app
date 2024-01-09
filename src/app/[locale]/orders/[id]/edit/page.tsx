@@ -3,8 +3,13 @@ import { getTranslations } from "next-intl/server";
 import { getOrderById } from "@/app/api/orders";
 import Table from "@/components/Table";
 import { Link } from "@/navigation";
+import NumberInput from "@/components/NumberInput";
+import { OrderProduct } from "@/types";
 
-export default async function Order({
+import DeleteOrderProduct from "../DeleteOrderProduct";
+import QuantityInput from "../QuantityInput";
+
+export default async function EditOrder({
   params: { id },
 }: {
   params: { id: string };
@@ -23,14 +28,6 @@ export default async function Order({
               {t("Buttons.back")}
             </button>
           </Link>
-          <Link href={`/orders/${id}/edit`}>
-            <button
-              type="button"
-              className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent disabled:opacity-50 disabled:pointer-events-none text-blue-500 hover:bg-blue-800/30 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-gray-600"
-            >
-              {t("Buttons.edit")}
-            </button>
-          </Link>
         </div>
         <h1 className="py-2 text-3xl">
           {t("Orders.order")} #{order.orderNumber}
@@ -42,10 +39,33 @@ export default async function Order({
               namespace="Products.properties"
               keyExtractor={({ id }) => id.toString()}
               hrefExtractor={({ id }) => `/products/${id}`}
-              properties={["reference", "name", "orderQuantity"]}
-              renderItem={(item, property) => item[property]}
+              properties={[
+                "reference",
+                "name",
+                "orderQuantity",
+                "delete" as keyof OrderProduct,
+              ]}
+              renderItem={(item, property) => {
+                if (property === ("delete" as keyof OrderProduct)) {
+                  return (
+                    <DeleteOrderProduct order={order} productId={item.id} />
+                  );
+                }
+                if (property === "orderQuantity") {
+                  return <QuantityInput order={order} productId={item.id} />;
+                }
+                return item[property];
+              }}
               data={order.products}
             />
+          </div>
+          <div className="py-3 px-4 flex justify-end">
+            <button
+              type="button"
+              className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent disabled:opacity-50 disabled:pointer-events-none text-blue-500 hover:bg-blue-800/30 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-gray-600"
+            >
+              {t("Orders.addProduct")}
+            </button>
           </div>
         </div>
 
