@@ -1,0 +1,13 @@
+{
+  "name": "ecomm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npx json-server data.js --port 3004 --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "json-server": "^0.17.4",
+    "nanoid": "^3.3.7"
+  }
+}

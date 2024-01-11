@@ -1,0 +1,15 @@
+---
+services:
+  json-server:
+    build:
+      context: ./json-server
+    ports:
+      - 3004:3004
+    restart: always
+
+  next-app:
+    build:
+      context: ./next-app
+    ports:
+      - 3000:3000
+    restart: on-failure
